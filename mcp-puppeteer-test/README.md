@@ -1,16 +1,16 @@
-# MCP Puppeteer Test
+# MCP Puppeteer Test with Roo-Code and Augment Integration
 
-This project is a Node.js program designed to automatically set up an MCP server (or proxy server) and run Puppeteer-based browser automation tests on a target website. It supports dynamic websites including React apps, performs error detection, usability checks, and logs detailed notes for further analysis and repair using an LLM.
+This project is a Node.js program designed to automatically set up an MCP server and run Puppeteer-based browser automation tests on a target website. It supports dynamic websites including React apps, performs error detection, usability checks, and logs detailed notes for further analysis and repair using LLMs. The program integrates with VSCode AI extensions like Roo-Code and Augment via the Model Context Protocol (MCP).
 
 ## Features
 
-- Automatic MCP server setup (stub implementation, extendable)
-- Puppeteer automation for login, navigation, and analysis
+- MCP server implementation exposing resources and accepting commands via MCP protocol
+- Puppeteer automation for login, navigation, autonomous exploration, and analysis
 - Handles React and dynamic content
 - Comprehensive error detection and logging
-- Graceful stopping on errors or dead ends
+- Bidirectional communication with Roo-Code and Augment for AI-guided testing
 - Easy configuration via `config.json` or interactive prompt on first run
-- Structured output for LLM consumption
+- Structured output for LLM consumption and AI extension integration
 
 ## Setup
 
@@ -38,24 +38,30 @@ node index.js
 
 ## Usage
 
-- The program will automatically set up the MCP server (stub) and launch Puppeteer to perform login and testing.
-- Errors and usability issues will be logged in the console.
-- Screenshots and logs can be extended as needed.
+- The program starts an MCP server that listens for commands from AI extensions like Roo-Code and Augment.
+- Use the AI extensions to send commands (e.g., `startTest`) to initiate testing.
+- The program performs login and autonomous exploration/testing of the website.
+- Logs, test results, screenshots, and other data are exposed as MCP resources accessible by the AI extensions.
+- AI extensions can analyze this data and provide guidance or automated repair suggestions.
 
 ## MCP Server Integration
 
-Currently, MCP server setup is a stub. You can extend the `setupMCPServer` function in `index.js` to install and launch your preferred MCP or proxy server automatically.
+- The MCP server is implemented in `mcp-server.js` and integrated in `index.js`.
+- It exposes HTTP endpoints for resources and commands following MCP protocol conventions.
+- Compatible with Roo-Code and Augment MCP features such as `access_mcp_resource`.
 
 ## Troubleshooting
 
-- If Puppeteer fails to launch, ensure the `--no-sandbox` and `--disable-setuid-sandbox` flags are used (already included).
-- Verify that the selectors you provide match the actual elements on your target website.
+- Puppeteer runs with `--no-sandbox` and `--disable-setuid-sandbox` flags for compatibility.
+- Ensure selectors provided during configuration match the target website elements.
+- Verify MCP server port availability.
 
 ## Future Improvements
 
-- Full MCP server automatic installation and configuration
-- Advanced error and usability analysis
-- Integration with LLM for automated repair suggestions
+- Implement AI-guided autonomous exploration and testing heuristics.
+- Enhance MCP protocol support for richer interaction with AI extensions.
+- Add more detailed logging and error analysis.
+- Provide example workflows for Roo-Code and Augment integration.
 
 ## Contributing
 
