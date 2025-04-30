@@ -1,0 +1,16 @@
+{
+  "loginUrl": "https://example.com/login",
+  "credentials": {
+    "username": "your-username",
+    "password": "your-password"
+  },
+  "loginSelector": {
+    "username": "#username",
+    "password": "#password",
+    "submit": "#login-button"
+  },
+  "targetUrl": "https://example.com/dashboard",
+  "mcpServerConfig": {
+    "port": 8080
+  }
+}
