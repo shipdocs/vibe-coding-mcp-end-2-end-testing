@@ -1,0 +1,57 @@
+{
+  "name": "@shipdocs/mcp-playwright-test",
+  "version": "1.0.0",
+  "description": "MCP-enabled Playwright testing tool for automated web testing with AI extensions",
+  "main": "index.js",
+  "bin": {
+    "mcp-playwright-test": "./bin/cli.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "mcp-server": "node src/mcp/server.js"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.42.1",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "winston": "^3.11.0",
+    "dotenv": "^16.3.1",
+    "commander": "^11.1.0",
+    "inquirer": "^8.2.5",
+    "chalk": "^4.1.2",
+    "ora": "^5.4.1",
+    "date-fns": "^3.0.6"
+  },
+  "keywords": [
+    "mcp",
+    "playwright",
+    "testing",
+    "automation",
+    "ai",
+    "roo-code",
+    "augment"
+  ],
+  "author": "shipdocs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shipdocs/vibe-coding-mcp-end-2-end-testing.git"
+  },
+  "homepage": "https://github.com/shipdocs/vibe-coding-mcp-end-2-end-testing/tree/main/mcp-playwright-test#readme",
+  "bugs": {
+    "url": "https://github.com/shipdocs/vibe-coding-mcp-end-2-end-testing/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "index.js",
+    "README.md",
+    "docs/"
+  ]
+}

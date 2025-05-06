@@ -1,0 +1,41 @@
+# Git files
+.git
+.github
+.gitignore
+
+# Development files
+node_modules
+npm-debug.log
+*.log
+.DS_Store
+.env
+.env.*
+
+# Test files
+test
+tests
+__tests__
+*.test.js
+*.spec.js
+
+# Build artifacts
+reports/
+reports/screenshots
+reports/videos
+reports/logs
+
+# Config files
+.eslintrc
+.eslintignore
+.prettierrc
+.babelrc
+tsconfig.json
+jest.config.js
+
+# Example files
+examples
+
+# Others
+.vscode
+coverage
+.nyc_output

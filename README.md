@@ -1,71 +1,72 @@
-# MCP Puppeteer Test with Roo-Code and Augment Integration
+# MCP End-to-End Testing for Roo-Code Integration
 
-This project is a Node.js program designed to automatically set up an MCP server and run Puppeteer-based browser automation tests on a target website. It supports dynamic websites including React apps, performs error detection, usability checks, and logs detailed notes for further analysis and repair using LLMs. The program integrates with VSCode AI extensions like Roo-Code and Augment via the Model Context Protocol (MCP).
+This repository contains tools for automated web testing with Model Context Protocol (MCP) integration, designed to work seamlessly with VSCode AI extensions like Roo-Code.
 
-## Features
+## Projects
 
-- MCP server implementation exposing resources and accepting commands via MCP protocol
-- Puppeteer automation for login, navigation, autonomous exploration, and analysis
-- Handles React and dynamic content
-- Comprehensive error detection and logging
-- Bidirectional communication with Roo-Code and Augment for AI-guided testing
-- Easy configuration via `config.json` or interactive prompt on first run
-- Structured output for LLM consumption and AI extension integration
+### MCP Playwright Test ([@shipdocs/mcp-playwright-test](https://www.npmjs.com/package/@shipdocs/mcp-playwright-test))
 
-## Setup
+A comprehensive end-to-end testing tool that implements the Model Context Protocol (MCP) for integration with AI assistants like Roo-Code and Augment.
 
-1. Clone the repository:
+**Key Features:**
+- Full MCP server implementation with resource and command endpoints
+- Playwright-powered browser automation for Chrome, Firefox, and WebKit
+- Automated login, navigation, and web exploration
+- Error detection and logging for AI-assisted debugging
+- Screenshot capture and accessibility analysis
+- Easy integration with Roo-Code via MCP
+
+**[View MCP Playwright Test Documentation](./mcp-playwright-test/README.md)**
+
+## Getting Started
+
+The easiest way to get started is to install the published npm package:
 
 ```bash
+# Install globally
+npm install -g @shipdocs/mcp-playwright-test
+
+# Create a configuration file
+mcp-playwright-test init
+
+# Start the MCP server
+mcp-playwright-test start
+```
+
+Alternatively, clone this repository:
+
+```bash
+# Clone repository and navigate to the MCP Playwright Test directory
 git clone https://github.com/shipdocs/vibe-coding-mcp-end-2-end-testing.git
-cd vibe-coding-mcp-end-2-end-testing/mcp-puppeteer-test
-```
+cd vibe-coding-mcp-end-2-end-testing/mcp-playwright-test
 
-2. Install dependencies:
-
-```bash
+# Install dependencies
 npm install
-```
 
-3. Run the program:
-
-```bash
+# Run the program
 node index.js
 ```
 
-- On first run, if `config.json` is not found, the program will prompt you to enter the login URL, credentials, selectors, target URL, and MCP server port.
-- The configuration will be saved to `config.json` for future runs.
+On first run, you'll be prompted to configure login details for your target website.
 
-## Usage
+## Roo-Code Integration
 
-- The program starts an MCP server that listens for commands from AI extensions like Roo-Code and Augment.
-- Use the AI extensions to send commands (e.g., `startTest`) to initiate testing.
-- The program performs login and autonomous exploration/testing of the website.
-- Logs, test results, screenshots, and other data are exposed as MCP resources accessible by the AI extensions.
-- AI extensions can analyze this data and provide guidance or automated repair suggestions.
+This repository is designed to work with the Roo-Code VSCode extension through the Model Context Protocol. To configure Roo-Code to use this tool:
 
-## MCP Server Integration
+1. In VSCode with Roo-Code installed, access the MCP settings
+2. Add a new MCP server using either:
+   - **STDIO Transport**: Run the tool as a child process
+   - **SSE Transport**: Connect to an already running server
 
-- The MCP server is implemented in `mcp-server.js` and integrated in `index.js`.
-- It exposes HTTP endpoints for resources and commands following MCP protocol conventions.
-- Compatible with Roo-Code and Augment MCP features such as `access_mcp_resource`.
+For detailed instructions, see:
+- [MCP Playwright Test User Guide](./mcp-playwright-test/docs/UserGuide.md#roo-code-integration)
+- [Detailed Roo-Code Integration Guide](./mcp-playwright-test/docs/Roo-Code-Integration.md)
 
-## Troubleshooting
+## Documentation
 
-- Puppeteer runs with `--no-sandbox` and `--disable-setuid-sandbox` flags for compatibility.
-- Ensure selectors provided during configuration match the target website elements.
-- Verify MCP server port availability.
-
-## Future Improvements
-
-- Implement AI-guided autonomous exploration and testing heuristics.
-- Enhance MCP protocol support for richer interaction with AI extensions.
-- Add more detailed logging and error analysis.
-- Provide example workflows for Roo-Code and Augment integration.
-
-## Contributing
-
-Feel free to fork and submit pull requests for improvements.
+- [MCP Playwright Test README](./mcp-playwright-test/README.md)
+- [Detailed User Guide](./mcp-playwright-test/docs/UserGuide.md)
+- [Roo-Code Integration Guide](./mcp-playwright-test/docs/Roo-Code-Integration.md)
 
 ## License
 
